@@ -1,10 +1,10 @@
 import json
 from typing import cast
-from clases import Cars, Clients, Drivers, Order, Track, Application, Rate, Stock
+from classess import Cars, Clients, Drivers, Order, Track, Application, Rate, Stock
 
-print(0)
-clients = [Clients('79274288749', 'Raphael'), Clients('89274056108', 'Danil')]
-cars = [Cars('BMV', 'a 135 rd'), Cars('Mersedes', '0 345 00')]
+clients = [Clients('79274288749', 'Raphael', '4,8'),
+           Clients('89274056108', 'Danil', '4,9')]
+cars = [Cars('BMV', 'a 135 rd', 'white', 'Good'), Cars('Mersedes', '0 345 00', 'black', 'Normal')]
 drivers = [Drivers('Vasiliy', cars[0], 4.6), Drivers('Kostya', cars[1], 4.1)]
 tracks = [Track('xxx', 'yyy'), Track('zzz', 'ccc')]
 orders = [Order('13.09.2021 16:45', tracks[0], clients[0], drivers[0], cost=250),
@@ -17,7 +17,7 @@ db = {
                      'car': {'model': dr.car.model, 'number': dr.car.number},
                      'rating': dr.rating} for dr in drivers),
 
-    'cars': list(ca.__dict__ for ca in cars),
+    'cars': list(car.__dict__ for car in cars),
 
     'orders': list({'data': der.data,
                     'track': {'where': der.track.where, 'where_t': der.track.where_t},
