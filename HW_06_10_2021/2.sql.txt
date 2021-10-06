@@ -1,0 +1,8 @@
+SELECT * FROM flights 
+WHERE ("departure_airport" = 'SVO'
+ OR "departure_airport" = 'VKO'
+OR "departure_airport" = 'DME')
+ and "actual_departure" 
+ BETWEEN '2017-08-09 12:25:00+03'
+  AND '2017-08-09 12:50:00+03'
+ AND "actual_departure" IS NOT NULL;

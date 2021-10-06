@@ -1,0 +1,1 @@
+SELECT * FROM flights WHERE (flights.departure_airport='KZN')and(arrival_airport='MQF')
